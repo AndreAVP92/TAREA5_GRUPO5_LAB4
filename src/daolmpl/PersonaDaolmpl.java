@@ -29,6 +29,7 @@ public class PersonaDaolmpl implements PersonaDao
 			
 			if(statement.executeUpdate() > 0)
 			{
+				//&& persona.getDni() != dnifromDB
 				conexion.commit();
 				isInsertExitoso = true;
 			}
@@ -41,8 +42,7 @@ public class PersonaDaolmpl implements PersonaDao
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
-		}
-		
+		}		
 		return isInsertExitoso;
 	}
 	

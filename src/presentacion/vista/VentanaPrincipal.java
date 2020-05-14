@@ -14,125 +14,97 @@ import javax.swing.JTextField;
 //import javax.swing.table.DefaultTableModel;
 
 import daolmpl.Conexion;
-//import entidad.Persona;
+
 
 public class VentanaPrincipal {
-	private JFrame frmAgenda;
-//	private JTable tablaPersonas;
-	private JButton btnBorrar;
-	
-//	private DefaultTableModel modelPersonas;
-//	private String[] nombreColumnas = {"Nombre y apellido","Telefono"};
-	private JTextField txtNombre;
-	private JTextField txtApellido;
-	private JTextField txtDni;
-	
+	private JFrame frmRegistro;
+	private JButton btnAceptar;
+	private JTextField textNombre;
+	private JTextField textApellido;
+	private JTextField textDni;
+
 	public VentanaPrincipal() 
 	{
 		super();
 		initialize();
 	}
-
-
-	public JTextField getTxtNombre() {
-		return txtNombre;
-	}
-
-	public void setTxtNombre(JTextField txtNombre) {
-		this.txtNombre = txtNombre;
-	}
-
-	public JTextField getTxtApellido() {
-		return txtApellido;
-	}
-
-	public void setTxtApellido(JTextField txtApellido) {
-		this.txtApellido = txtApellido;
+	
+	public JTextField getTextNombre() {
+		return textNombre;
 	}
 	
-	public JTextField getTxtDni() {
-		return txtDni;
+	public void setTextNombre(JTextField textNombre) {
+		this.textNombre = textNombre;
 	}
 
-	public void setTxtDni(JTextField txtDni) {
-		this.txtDni = txtDni;
+	public JTextField getTextApellido() {
+		return textApellido;
+	}
+
+	public JButton getBtnAceptar() {
+		return btnAceptar;
 	}
 	
-	public JButton getBtnAgregar() {
-		return btnAgregar;
+	public void setBtnAceptar(JButton btnAceptar) {
+		this.btnAceptar = btnAceptar;
 	}
 
-	
-	public void setBtnAgregar(JButton btnAgregar) {
-		this.btnAgregar = btnAgregar;
+	public void setTextApellido(JTextField textApellido) {
+		this.textApellido = textApellido;
 	}
 
-	public void setBtnBorrar(JButton btnBorrar) {
-		this.btnBorrar = btnBorrar;
+	public JTextField getTextDni() {
+		return textDni;
 	}
 
-	private JButton btnAgregar;
+	public void setTextDni(JTextField textDni) {
+		this.textDni = textDni;
+	}
 
-	
 	private void initialize() 
 	{
-		frmAgenda = new JFrame();
-		frmAgenda.setTitle("Agenda");
-		frmAgenda.setBounds(100, 100, 514, 474);
-		frmAgenda.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmAgenda.getContentPane().setLayout(null);
+		frmRegistro = new JFrame();
+		frmRegistro.setTitle("Programa");
+		frmRegistro.setBounds(100, 100, 517, 353);
+		frmRegistro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmRegistro.getContentPane().setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(15, 171, 444, 227);
-		frmAgenda.getContentPane().add(panel);
-		panel.setLayout(null);
+		btnAceptar = new JButton("Aceptar");
+		btnAceptar.setBounds(66, 222, 116, 23);
+		frmRegistro.getContentPane().add(btnAceptar);
 		
-		JScrollPane spPersonas = new JScrollPane();
-		spPersonas.setBounds(15, 30, 383, 126);
-		panel.add(spPersonas);
+		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setBounds(66, 59, 56, 16);
+		frmRegistro.getContentPane().add(lblNombre);
 		
+		JLabel lblApellido = new JLabel("Apellido");
+		lblApellido.setBounds(66, 117, 56, 16);
+		frmRegistro.getContentPane().add(lblApellido);
 		
-		btnBorrar = new JButton("Borrar");
-		btnBorrar.setBounds(310, 187, 89, 23);
-		panel.add(btnBorrar);
+		JLabel lblDni = new JLabel("Dni");
+		lblDni.setBounds(66, 176, 56, 16);
+		frmRegistro.getContentPane().add(lblDni);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setLayout(null);
-		panel_1.setBounds(15, 16, 438, 139);
-		frmAgenda.getContentPane().add(panel_1);
+		textNombre = new JTextField();
+		textNombre.setBounds(214, 56, 163, 22);
+		frmRegistro.getContentPane().add(textNombre);
+		textNombre.setColumns(10);
 		
-		JLabel label = new JLabel("Nombre");
-		label.setBounds(10, 22, 170, 14);
-		panel_1.add(label);
+		textApellido = new JTextField();
+		textApellido.setBounds(214, 114, 163, 22);
+		frmRegistro.getContentPane().add(textApellido);
+		textApellido.setColumns(10);
 		
-		JLabel label_1 = new JLabel("Apellido");
-		label_1.setBounds(43, 59, 113, 14);
-		panel_1.add(label_1);
-		
-		txtNombre = new JTextField();
-		txtNombre.setColumns(10);
-		txtNombre.setBounds(184, 19, 164, 20);
-		panel_1.add(txtNombre);
-		
-		txtApellido = new JTextField();
-		txtApellido.setColumns(10);
-		txtApellido.setBounds(184, 56, 164, 20);
-		panel_1.add(txtApellido);
-		
-		txtDni = new JTextField();
-		txtDni.setColumns(10);
-		txtDni.setBounds(184, 94, 164, 20);
-		panel_1.add(txtDni);
-		
-		btnAgregar = new JButton("Agregar");
-		btnAgregar.setBounds(259, 100, 89, 23);
-		panel_1.add(btnAgregar);
+		textDni = new JTextField();
+		textDni.setBounds(214, 173, 116, 22);
+		frmRegistro.getContentPane().add(textDni);
+		textDni.setColumns(10);
 	}
 	
 	public void show()
 	{
-		this.frmAgenda.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		this.frmAgenda.addWindowListener(new WindowAdapter() 
+		this.frmRegistro.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		this.frmRegistro.addWindowListener(new WindowAdapter() 
 		{
 			@Override
 		    public void windowClosing(WindowEvent e) {
@@ -140,13 +112,13 @@ public class VentanaPrincipal {
 		             null, "¿Estás seguro que quieres salir de la Agenda?", 
 		             "Confirmación", JOptionPane.YES_NO_OPTION,
 		             JOptionPane.QUESTION_MESSAGE, null, null, null);
-		        if (confirm == 0) {
-		        	Conexion.getConexion().cerrarConexion();
+		        if (confirm == 0) {		        	
 		           System.exit(0);
+		           Conexion.getConexion().cerrarConexion();
 		        }
 		    }
 		});
-		this.frmAgenda.setVisible(true);
+		this.frmRegistro.setVisible(true);
 	}
 	
 	public void mostrarMensaje(String mensaje)

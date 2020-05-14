@@ -17,15 +17,15 @@ public class Controlador implements ActionListener
 		{
 			this.ventanaPrincipal = vista;
 			this.pNeg = pNeg;
-			this.ventanaPrincipal.getBtnAgregar().addActionListener(a->ventanaAgregarPersona(a));
+			this.ventanaPrincipal.getBtnAceptar().addActionListener(a->ventanaAgregarPersona(a));
 //			this.ventanaPrincipal.getBtnBorrar().addActionListener(s->borrarPersona(s));
 		}
 		
 		
 		private void ventanaAgregarPersona(ActionEvent a) {
-			String nombre = ventanaPrincipal.getTxtNombre().getText();
-			String apellido = ventanaPrincipal.getTxtApellido().getText();
-			String dni = ventanaPrincipal.getTxtDni().getText();
+			String nombre = ventanaPrincipal.getTextNombre().getText();
+			String apellido = ventanaPrincipal.getTextApellido().getText();
+			String dni = ventanaPrincipal.getTextDni().getText();
 			Persona nuevaPersona = new Persona(nombre, apellido, dni);
 			
 			boolean estado = pNeg.insert(nuevaPersona);
@@ -33,9 +33,9 @@ public class Controlador implements ActionListener
 			if(estado==true)
 			{
 				mensaje="Persona agregada con exito";
-				ventanaPrincipal.getTxtNombre().setText("");
-				ventanaPrincipal.getTxtApellido().setText("");
-				ventanaPrincipal.getTxtDni().setText("");
+				ventanaPrincipal.getTextNombre().setText("");
+				ventanaPrincipal.getTextApellido().setText("");
+				ventanaPrincipal.getTextDni().setText("");
 			}
 			else
 				mensaje="Persona no agregada, complete todos los campos";
