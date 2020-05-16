@@ -6,8 +6,6 @@ import java.util.ArrayList;
 
 //import java.util.ArrayList;
 import negocio.PersonaNegocio;
-import presentacion.vista.PanelAgregarPersonas;
-import presentacion.vista.PanelEliminarPersonas;
 import presentacion.vista.VentanaPrincipal;
 import entidad.Persona;
 
@@ -30,7 +28,7 @@ public class Controlador implements ActionListener
 		
 		public void inicializar()
 		{
-			this.ventanaPrincipal.setVisible(true);;
+			this.ventanaPrincipal.setVisible(true);
 		}
 		
 		

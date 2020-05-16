@@ -14,11 +14,6 @@ public class Principal {
 		Controlador controlador = new Controlador(vista, negocio);
 		controlador.inicializar();
 		
-		
-	
-
-				
-		
 	}
 
 }

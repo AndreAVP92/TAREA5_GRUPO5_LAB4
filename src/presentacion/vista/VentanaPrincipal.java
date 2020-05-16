@@ -9,15 +9,12 @@ import java.awt.Font;
 
 public class VentanaPrincipal extends JFrame {
 
-	
-	private JMenuBar menuBar;
+
 	private JMenu MenuPersonas;
 	private JMenuItem MenuAgregar;
 	private JMenuItem MenuModificar;
 	private JMenuItem MenuEliminar;
 	private JMenuItem MenuListar;
-	
-	
 	
 	public VentanaPrincipal() {
 		setTitle("Programa");
@@ -48,67 +45,44 @@ public class VentanaPrincipal extends JFrame {
 		MenuPersonas.add(MenuListar);
 	}
 
-
 	public JMenu getMenuPersonas() {
 		return MenuPersonas;
 	}
-
-
 
 	public void setMenuPersonas(JMenu menuPersonas) {
 		MenuPersonas = menuPersonas;
 	}
 
-
-
 	public JMenuItem getMenuAgregar() {
 		return MenuAgregar;
 	}
-
-
 
 	public void setMenuAgregar(JMenuItem menuAgregar) {
 		MenuAgregar = menuAgregar;
 	}
 
-
-
 	public JMenuItem getMenuModificar() {
 		return MenuModificar;
 	}
-
-
 
 	public void setMenuModificar(JMenuItem menuModificar) {
 		MenuModificar = menuModificar;
 	}
 
-
-
 	public JMenuItem getMenuEliminar() {
 		return MenuEliminar;
 	}
-
-
 
 	public void setMenuEliminar(JMenuItem menuEliminar) {
 		MenuEliminar = menuEliminar;
 	}
 
-
-
 	public JMenuItem getMenuListar() {
 		return MenuListar;
 	}
-
-
 
 	public void setMenuListar(JMenuItem menuListar) {
 		MenuListar = menuListar;
 	}
 	
-	
-	
-
-
 }
