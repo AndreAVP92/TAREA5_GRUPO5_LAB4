@@ -7,6 +7,7 @@ import negocio.PersonaNegocio;
 import presentacion.vista.PanelAgregarPersonas;
 //import presentacion.vista.PanelEliminarPersonas;
 import presentacion.vista.PanelModificarPersonas;
+import presentacion.vista.PanelListarPersonas;
 import presentacion.vista.VentanaPrincipal;
 import entidad.Persona;
 
@@ -19,9 +20,9 @@ public class Controlador implements ActionListener
 	private PanelAgregarPersonas pnlIngresoPersonas;
 //	private PanelEliminarPersonas pnlEliminarPersonas;
 	private PanelModificarPersonas pnlModificarPersonas;
+	private PanelListarPersonas pnlListarPersonas;
 	
 		//Constructor
-	
 		public Controlador(VentanaPrincipal vista, PersonaNegocio pNeg)
 		{
 			this.ventanaPrincipal = vista;
@@ -32,12 +33,19 @@ public class Controlador implements ActionListener
 			this.pnlIngresoPersonas = new PanelAgregarPersonas();
 		//	this.pnlEliminarPersonas = new PanelEliminarPersonas();
 			this.pnlModificarPersonas = new PanelModificarPersonas();
+			this.pnlListarPersonas = new PanelListarPersonas();
 			
 			//Eventos menu del Frame principal llamado Ventana
 			this.ventanaPrincipal.getMenuAgregar().addActionListener(a->EventoClickMenu_AbrirPanel_AgregarPersona(a));
 	//		this.ventanaPrincipal.getMenuEliminar().addActionListener(a->EventoClickMenu_AbrirPanel_EliminarPersona(a));
 			this.ventanaPrincipal.getMenuModificar().addActionListener(a->EventoClickMenu_AbrirPanel_ModificarPersona(a));
+			this.ventanaPrincipal.getMenuListar().addActionListener(a->EventoClickMenu_AbrirPanel_ListarPersona(a));
+			
+			//Eventos click on Paneles
+			
 		}
+		
+		//EVENTOS ABRIR PANELES
 		
 		//EventoClickMenu abrir PanelAgregarPersonas
 		public void  EventoClickMenu_AbrirPanel_AgregarPersona(ActionEvent a)
@@ -46,12 +54,6 @@ public class Controlador implements ActionListener
 			ventanaPrincipal.getContentPane().add(pnlIngresoPersonas);
 			ventanaPrincipal.getContentPane().repaint();
 			ventanaPrincipal.getContentPane().revalidate();
-		}
-		
-		private void EventoClickBoton_AgregarPesona_PanelAgregarPersonas(ActionEvent a) {
-			
-			//TERMINAR FUNCION
-		
 		}
 		
 		//EventoClickMenu abrir PanelEliminarPersonas
@@ -63,13 +65,30 @@ public class Controlador implements ActionListener
 			ventanaPrincipal.getContentPane().revalidate();
 		} */
 		
-		//EventoClickMenu abrir PanelEliminarPersonas
+		//EventoClickMenu abrir PanelModificarPersonas
 		public void EventoClickMenu_AbrirPanel_ModificarPersona(ActionEvent a)
 		{		
 			ventanaPrincipal.getContentPane().removeAll();
 			ventanaPrincipal.getContentPane().add(pnlModificarPersonas);
 			ventanaPrincipal.getContentPane().repaint();
 			ventanaPrincipal.getContentPane().revalidate();
+		}
+		
+		public void EventoClickMenu_AbrirPanel_ListarPersona(ActionEvent a)
+		{		
+			ventanaPrincipal.getContentPane().removeAll();
+			ventanaPrincipal.getContentPane().add(pnlListarPersonas);
+			ventanaPrincipal.getContentPane().repaint();
+			ventanaPrincipal.getContentPane().revalidate();
+		}
+		
+		
+		//EVENTOS CLICK ON PANELES
+		
+		private void EventoClickBoton_AgregarPesona_PanelAgregarPersonas(ActionEvent a) {
+			
+			//TERMINAR FUNCION
+		
 		}
 		
 		
