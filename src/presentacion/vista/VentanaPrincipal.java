@@ -9,7 +9,7 @@ import java.awt.Font;
 
 public class VentanaPrincipal extends JFrame {
 
-
+	private JMenuBar menuBar;
 	private JMenu menuPersonas;
 	private JMenuItem menuEliminar;
 	private JMenuItem menuAgregar;
@@ -21,8 +21,12 @@ public class VentanaPrincipal extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 783, 494);
 		
+		menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
 		menuPersonas = new JMenu("Personas");
 		menuPersonas.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		menuBar.add(menuPersonas);
 		
 		menuAgregar = new JMenuItem("Agregar");
 		menuAgregar.setFont(new Font("Segoe UI", Font.BOLD, 15));
@@ -45,40 +49,40 @@ public class VentanaPrincipal extends JFrame {
 		return menuPersonas;
 	}
 
-	public void setMenuPersonas(JMenu MenuPersonas) {
-		menuPersonas = MenuPersonas;
+	public void setMenuPersonas(JMenu menuPersonas) {
+		this.menuPersonas = menuPersonas;
 	}
 
 	public JMenuItem getMenuAgregar() {
 		return menuAgregar;
 	}
 
-	public void setMenuAgregar(JMenuItem MenuAgregar) {
-		menuAgregar = MenuAgregar;
+	public void setMenuAgregar(JMenuItem menuAgregar) {
+		this.menuAgregar = menuAgregar;
 	}
 
 	public JMenuItem getMenuModificar() {
 		return menuModificar;
 	}
 
-	public void setMenuModificar(JMenuItem MenuModificar) {
-		menuModificar = MenuModificar;
+	public void setMenuModificar(JMenuItem menuModificar) {
+		this.menuModificar = menuModificar;
 	}
 
 	public JMenuItem getMenuEliminar() {
 		return menuEliminar;
 	}
 
-	public void setMenuEliminar(JMenuItem MenuEliminar) {
-		menuEliminar = MenuEliminar;
+	public void setMenuEliminar(JMenuItem menuEliminar) {
+		this.menuEliminar = menuEliminar;
 	}
 
 	public JMenuItem getMenuListar() {
 		return menuListar;
 	}
 
-	public void setMenuListar(JMenuItem MenuListar) {
-		menuListar = MenuListar;
+	public void setMenuListar(JMenuItem menuListar) {
+		this.menuListar = menuListar;
 	}
 	
 }

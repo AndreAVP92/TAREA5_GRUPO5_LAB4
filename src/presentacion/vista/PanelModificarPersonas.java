@@ -14,30 +14,30 @@ public class PanelModificarPersonas extends JPanel {
 		setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(135, 285, 57, 20);
+		lblNombre.setBounds(150, 301, 57, 20);
 		add(lblNombre);
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(196, 282, 98, 26);
+		txtNombre.setBounds(211, 298, 98, 26);
 		add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		JLabel lblDni = new JLabel("DNI");
-		lblDni.setBounds(15, 285, 30, 20);
+		lblDni.setBounds(15, 301, 30, 20);
 		add(lblDni);
 		
 		txtDni = new JTextField();
 		txtDni.setColumns(10);
-		txtDni.setBounds(45, 282, 87, 26);
+		txtDni.setBounds(45, 298, 87, 26);
 		add(txtDni);
 		
 		lblApellido = new JLabel("Apellido");
-		lblApellido.setBounds(307, 285, 70, 20);
+		lblApellido.setBounds(322, 301, 70, 20);
 		add(lblApellido);
 		
 		txtApellido = new JTextField();
 		txtApellido.setColumns(10);
-		txtApellido.setBounds(371, 282, 98, 26);
+		txtApellido.setBounds(384, 298, 98, 26);
 		add(txtApellido);
 
 	}
