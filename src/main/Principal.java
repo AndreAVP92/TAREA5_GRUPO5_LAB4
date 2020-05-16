@@ -13,6 +13,12 @@ public class Principal {
 		PersonaNegocio negocio = new PersonaNegociolmpl();
 		Controlador controlador = new Controlador(vista, negocio);
 		controlador.inicializar();
+		
+		
+	
+
+				
+		
 	}
 
 }
