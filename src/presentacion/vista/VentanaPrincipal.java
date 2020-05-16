@@ -10,79 +10,75 @@ import java.awt.Font;
 public class VentanaPrincipal extends JFrame {
 
 
-	private JMenu MenuPersonas;
-	private JMenuItem MenuAgregar;
-	private JMenuItem MenuModificar;
-	private JMenuItem MenuEliminar;
-	private JMenuItem MenuListar;
+	private JMenu menuPersonas;
+	private JMenuItem menuEliminar;
+	private JMenuItem menuAgregar;
+	private JMenuItem menuModificar;
+	private JMenuItem menuListar;
 	
 	public VentanaPrincipal() {
 		setTitle("Programa");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 783, 494);
 		
-		JMenuBar menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
+		menuPersonas = new JMenu("Personas");
+		menuPersonas.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		
-		JMenu MenuPersonas = new JMenu("Personas");
-		MenuPersonas.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		menuBar.add(MenuPersonas);
+		menuAgregar = new JMenuItem("Agregar");
+		menuAgregar.setFont(new Font("Segoe UI", Font.BOLD, 15));
+		menuPersonas.add(menuAgregar);
 		
-		JMenuItem MenuAgregar = new JMenuItem("Agregar");
-		MenuAgregar.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		MenuPersonas.add(MenuAgregar);
+		menuModificar = new JMenuItem("Modificar");
+		menuModificar.setFont(new Font("Segoe UI", Font.BOLD, 15));
+		menuPersonas.add(menuModificar);
 		
-		JMenuItem MenuModificar = new JMenuItem("Modificar");
-		MenuModificar.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		MenuPersonas.add(MenuModificar);
+		menuEliminar = new JMenuItem("Eliminar");
+		menuEliminar.setFont(new Font("Segoe UI", Font.BOLD, 15));
+		menuPersonas.add(menuEliminar);
 		
-		JMenuItem MenuEliminar = new JMenuItem("Eliminar");
-		MenuEliminar.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		MenuPersonas.add(MenuEliminar);
-		
-		JMenuItem MenuListar = new JMenuItem("Listar");
-		MenuListar.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		MenuPersonas.add(MenuListar);
+		menuListar = new JMenuItem("Listar");
+		menuListar.setFont(new Font("Segoe UI", Font.BOLD, 15));
+		menuPersonas.add(menuListar);
 	}
 
 	public JMenu getMenuPersonas() {
-		return MenuPersonas;
+		return menuPersonas;
 	}
 
-	public void setMenuPersonas(JMenu menuPersonas) {
-		MenuPersonas = menuPersonas;
+	public void setMenuPersonas(JMenu MenuPersonas) {
+		menuPersonas = MenuPersonas;
 	}
 
 	public JMenuItem getMenuAgregar() {
-		return MenuAgregar;
+		return menuAgregar;
 	}
 
-	public void setMenuAgregar(JMenuItem menuAgregar) {
-		MenuAgregar = menuAgregar;
+	public void setMenuAgregar(JMenuItem MenuAgregar) {
+		menuAgregar = MenuAgregar;
 	}
 
 	public JMenuItem getMenuModificar() {
-		return MenuModificar;
+		return menuModificar;
 	}
 
-	public void setMenuModificar(JMenuItem menuModificar) {
-		MenuModificar = menuModificar;
+	public void setMenuModificar(JMenuItem MenuModificar) {
+		menuModificar = MenuModificar;
 	}
 
 	public JMenuItem getMenuEliminar() {
-		return MenuEliminar;
+		return menuEliminar;
 	}
 
-	public void setMenuEliminar(JMenuItem menuEliminar) {
-		MenuEliminar = menuEliminar;
+	public void setMenuEliminar(JMenuItem MenuEliminar) {
+		menuEliminar = MenuEliminar;
 	}
 
 	public JMenuItem getMenuListar() {
-		return MenuListar;
+		return menuListar;
 	}
 
-	public void setMenuListar(JMenuItem menuListar) {
-		MenuListar = menuListar;
+	public void setMenuListar(JMenuItem MenuListar) {
+		menuListar = MenuListar;
 	}
 	
 }

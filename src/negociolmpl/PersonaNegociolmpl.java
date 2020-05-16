@@ -18,4 +18,9 @@ public class PersonaNegociolmpl implements PersonaNegocio {
 		}
 		return estado;
 	}
+	@Override
+	public boolean update(Persona persona) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
