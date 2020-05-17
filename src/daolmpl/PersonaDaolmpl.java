@@ -47,6 +47,20 @@ public class PersonaDaolmpl implements PersonaDao
 		return isInsertExitoso;
 	}
 	
+	public static ResultSet getTabla(String Consulta) {
+
+	Connection conexion = Conexion.getConexion().getSQLConexion();
+	Statement st;
+	ResultSet datos=null;
+	try {
+
+		st=conexion.createStatement();
+		datos=st.executeQuery(Consulta);
+
+	}catch(Exception e){System.out.print(e.toString());}
+
+	return datos;
+	}
 //	public boolean delete(Persona persona_a_eliminar)
 //	{
 //		PreparedStatement statement;
