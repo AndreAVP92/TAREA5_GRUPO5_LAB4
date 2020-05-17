@@ -45,7 +45,7 @@ public class Controlador implements ActionListener
 			this.ventanaPrincipal.getMenuListar().addActionListener(a->EventoClickMenu_AbrirPanel_ListarPersona(a));
 			
 			//Eventos click on Paneles
-		//	this.pnlModificarPersonas.getBtnModificar().addActionListener();
+			this.pnlModificarPersonas.getBtnModificar().addActionListener();
 			 this.pnlEliminarPersonas.getBtnEliminar().addActionListener(s->EventoClickBoton_BorrarPesona_PanelEliminarPersonas(s));
 			
 		}
@@ -77,9 +77,35 @@ public class Controlador implements ActionListener
 		public void EventoClickMenu_AbrirPanel_ModificarPersona(ActionEvent a)
 		{		
 			ventanaPrincipal.getContentPane().removeAll();
+			llenarDatos();
+			pnlModificarPersonas.setDefaultListModel(listModel);
 			ventanaPrincipal.getContentPane().add(pnlModificarPersonas);
 			ventanaPrincipal.getContentPane().repaint();
 			ventanaPrincipal.getContentPane().revalidate();
+		}
+		
+		//EventoClickBoton modificar persona en PanelModificarPersonas
+		private void EventoClickBoton_ModificarPesona_PanelModificarPersonas(ActionEvent a) {
+			String nombre = this.pnlModificarPersonas.getTxtNombre().getText();
+			String apellido = this.pnlModificarPersonas.getTxtApellido().getText();
+			String dni = this.pnlModificarPersonas.getTxtDni().getText();
+			Persona nuevaPersona = new Persona(dni,nombre,apellido);
+			
+			boolean estado = pNeg.update(nuevaPersona);
+			String mensaje;
+			if(estado==true)
+			{
+				mensaje="Persona modificada con exito";
+				this.pnlModificarPersonas.getTxtNombre().setText("");
+				this.pnlModificarPersonas.getTxtApellido().setText("");
+				this.pnlModificarPersonas.getTxtDni().setText("");
+			}
+			else
+				mensaje="Persona no modificada, todos los campos deben estar completos";
+			
+			this.pnlModificarPersonas.mostrarMensaje(mensaje);
+			this.llenarDatos();
+			pnlModificarPersonas.setDefaultListModel(listModel);
 		}
 		
 		public void EventoClickMenu_AbrirPanel_ListarPersona(ActionEvent a)
