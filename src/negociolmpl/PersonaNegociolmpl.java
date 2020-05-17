@@ -26,6 +26,23 @@ public class PersonaNegociolmpl implements PersonaNegocio {
 	
 	
 	@Override
+	public boolean delete(Persona persona_a_eliminar) {
+		// TODO Auto-generated method stub
+		
+		boolean estado=false;
+		if( !persona_a_eliminar.getDni().isEmpty() )//También se puede preguntar si existe ese ID 
+		{
+			estado= pdao.delete(persona_a_eliminar);
+		
+		}
+		return estado;	
+		
+	
+	}
+
+
+
+	@Override
 	public List<Persona> readAll() {
 		// TODO Auto-generated method stub
 		return pdao.readAll();

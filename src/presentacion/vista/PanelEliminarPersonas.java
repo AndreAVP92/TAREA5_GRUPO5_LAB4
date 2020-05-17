@@ -21,6 +21,14 @@ public class PanelEliminarPersonas extends JPanel {
 	private DefaultListModel<Persona> listModel;
 	
 	
+	public JList<Persona> getList() {
+		return list;
+	}
+
+	public void setList(JList<Persona> list) {
+		this.list = list;
+	}
+
 	public PanelEliminarPersonas() {
 		setLayout(null);
 		this.setBounds(100, 100, 514, 455);
@@ -31,6 +39,7 @@ public class PanelEliminarPersonas extends JPanel {
 		add(lblEliminarUsu);
 		
 		list = new JList<Persona>();
+		list.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		list.setBounds(65, 89, 389, 240);
 		add(list);
 	

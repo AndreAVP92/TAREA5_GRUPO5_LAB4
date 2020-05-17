@@ -64,6 +64,7 @@ public class PersonaDaolmpl implements PersonaDao
 
 	return datos;
 	}
+	
 	public boolean delete(Persona persona_a_eliminar)
 		{
 		PreparedStatement statement;
@@ -73,6 +74,7 @@ public class PersonaDaolmpl implements PersonaDao
 	{
 		statement = conexion.prepareStatement(delete);
 			statement.setString(1,persona_a_eliminar.getDni());
+			
 			if(statement.executeUpdate() > 0)
 		{
 				conexion.commit();
@@ -113,9 +115,9 @@ public class PersonaDaolmpl implements PersonaDao
 	private Persona getPersona(ResultSet resultSet) throws SQLException
 	{
 		String nombre = resultSet.getString("Nombre");
-	String apellido = resultSet.getString("Apellido");
+		String apellido = resultSet.getString("Apellido");
 		String dni = resultSet.getString("DNI");
-		return new Persona(nombre, apellido, dni);
+		return new Persona(dni, nombre, apellido);
 	}
 	
 	public boolean update(Persona persona)

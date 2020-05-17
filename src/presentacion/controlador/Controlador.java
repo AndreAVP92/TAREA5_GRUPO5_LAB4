@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 import negocio.PersonaNegocio;
 import presentacion.vista.PanelAgregarPersonas;
 import presentacion.vista.PanelEliminarPersonas;
@@ -44,6 +46,7 @@ public class Controlador implements ActionListener
 			
 			//Eventos click on Paneles
 		//	this.pnlModificarPersonas.getBtnModificar().addActionListener();
+			 this.pnlEliminarPersonas.getBtnEliminar().addActionListener(s->EventoClickBoton_BorrarPesona_PanelEliminarPersonas(s));
 			
 		}
 		
@@ -96,9 +99,11 @@ public class Controlador implements ActionListener
 		}
 
 
-public void llenarDatos() {
+	public void llenarDatos() {
 		
-	refrescarTabla();
+		listModel.removeAllElements();
+	
+		refrescarTabla();
 
 		if (!personasEnTabla.isEmpty()) {
 			
@@ -106,15 +111,35 @@ public void llenarDatos() {
 			{
 				listModel.addElement(p);
 				
-			}
-			
+		}}}
+	
+	public void EventoClickBoton_BorrarPesona_PanelEliminarPersonas(ActionEvent s)
+		{
+			boolean estado=false;
+			int filasSeleccionadas = this.pnlEliminarPersonas.getList().getSelectedIndex();
+	
+			estado = pNeg.delete(this.personasEnTabla.get(filasSeleccionadas));
+		
+			if(estado==true)
+			{
+			String mensaje="Persona eliminada con exito";
+			mostrarMensaje(mensaje);
 		}
-		
+	
+	this.llenarDatos();
+	this.pnlEliminarPersonas.setDefaultListModel(listModel);
+	
+		}
+
+	public void mostrarMensaje(String mensaje)
+	{
+		JOptionPane.showMessageDialog(null, mensaje);
 	}
-		
 		
 		public void inicializar()
 		{
+			
+			this.ventanaPrincipal.setLocationRelativeTo(null);
 			this.ventanaPrincipal.setVisible(true);
 		}
 		
