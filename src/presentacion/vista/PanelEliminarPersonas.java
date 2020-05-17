@@ -11,11 +11,13 @@ import javax.swing.JOptionPane;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.util.List;
 
 public class PanelEliminarPersonas extends JPanel {
 
 	private JButton btnEliminar;
 	private JList<Persona> list;
+	
 	private DefaultListModel<Persona> listModel;
 	
 	
@@ -31,6 +33,8 @@ public class PanelEliminarPersonas extends JPanel {
 		list = new JList<Persona>();
 		list.setBounds(65, 89, 389, 240);
 		add(list);
+	
+		
 		
 		btnEliminar = new JButton("Eliminar");
 		btnEliminar.setBounds(192, 363, 97, 25);
@@ -59,4 +63,22 @@ public class PanelEliminarPersonas extends JPanel {
 	}
 	
 	
+	public void llenarDatos(List<Persona> personasEnTabla) {
+		
+
+		if (personasEnTabla != null) {
+			
+			for (Persona p : personasEnTabla)
+			{
+				//listModel.addElement(personasEnTabla.);
+			}
+			
+			
+		}
+		else {
+			
+			mostrarMensaje("No tiene datos");
+		}	
+		
+	}
 }

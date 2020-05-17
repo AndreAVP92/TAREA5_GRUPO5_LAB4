@@ -1,5 +1,7 @@
 package negociolmpl;
 
+import java.util.List;
+
 import dao.PersonaDao;
 import daolmpl.PersonaDaolmpl;
 import entidad.Persona;
@@ -8,6 +10,8 @@ import negocio.PersonaNegocio;
 public class PersonaNegociolmpl implements PersonaNegocio {
 	
 	PersonaDao pdao = new PersonaDaolmpl();
+	
+	
 	@Override
 	public boolean insert(Persona persona) {
 		
@@ -18,6 +22,17 @@ public class PersonaNegociolmpl implements PersonaNegocio {
 		}
 		return estado;
 	}
+	
+	
+	
+	@Override
+	public List<Persona> readAll() {
+		// TODO Auto-generated method stub
+		return pdao.readAll();
+	}
+
+	
+
 	@Override
 	public boolean update(Persona persona) {
 		// TODO Auto-generated method stub

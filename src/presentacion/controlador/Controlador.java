@@ -63,6 +63,7 @@ public class Controlador implements ActionListener
 					ventanaPrincipal.getContentPane().add(pnlEliminarPersonas);
 					ventanaPrincipal.getContentPane().repaint();
 					ventanaPrincipal.getContentPane().revalidate();
+					//this.refrescarTabla();
 				} 
 		
 		//EventoClickMenu abrir PanelModificarPersonas
@@ -83,7 +84,14 @@ public class Controlador implements ActionListener
 		}
 		
 		
-	
+		/*private void refrescarTabla()
+		{
+			this.personasEnTabla = (ArrayList<Persona>) pNeg.readAll();
+			this.pnlEliminarPersonas.llenarDatos(this.personasEnTabla);
+			
+		}
+
+*/
 		
 		public void inicializar()
 		{
