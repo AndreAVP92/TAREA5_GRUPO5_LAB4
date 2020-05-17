@@ -3,15 +3,22 @@ package presentacion.vista;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import entidad.Persona;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 
 public class PanelModificarPersonas extends JPanel {
 	private JTextField txtNombre;
 	private JTextField txtDni;
 	private JLabel lblApellido;
 	private JTextField txtApellido;
-	JButton btnModificar;
+	private JButton btnModificar;
+	private JList<Persona> list;
+	private DefaultListModel<Persona> listModel;
 
 	public PanelModificarPersonas() {
 		setLayout(null);
@@ -47,7 +54,7 @@ public class PanelModificarPersonas extends JPanel {
 		btnModificar.setBounds(518, 293, 115, 41);
 		add(btnModificar);
 		
-		JList list = new JList();
+		list = new JList();
 		list.setBounds(39, 40, 579, 240);
 		add(list);
 		
@@ -58,8 +65,7 @@ public class PanelModificarPersonas extends JPanel {
 	}
 
 	public void mostrarMensaje(String mensaje) {
-		// TODO Auto-generated method stub
-		
+		JOptionPane.showMessageDialog(null, mensaje);
 	}
 	
 	public JTextField getTxtNombre() {
@@ -78,5 +84,9 @@ public class PanelModificarPersonas extends JPanel {
 		return btnModificar;
 	}
 	
+	public void setDefaultListModel(DefaultListModel<Persona> listModelRecibido) {
+		this.listModel = listModelRecibido;
+		list.setModel(this.listModel);
+	}
 	
 }
