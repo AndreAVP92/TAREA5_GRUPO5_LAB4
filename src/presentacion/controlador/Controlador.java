@@ -57,13 +57,13 @@ public class Controlador implements ActionListener
 		}
 		
 		//EventoClickMenu abrir PanelEliminarPersonas
-		public void EventoClickMenu_AbrirPanel_EliminarPersona(ActionEvent a)
-		{		
-			ventanaPrincipal.getContentPane().removeAll();
-			ventanaPrincipal.getContentPane().add(pnlEliminarPersonas);
-			ventanaPrincipal.getContentPane().repaint();
-			ventanaPrincipal.getContentPane().revalidate();
-		} 
+				public void EventoClickMenu_AbrirPanel_EliminarPersona(ActionEvent a)
+				{		
+					ventanaPrincipal.getContentPane().removeAll();
+					ventanaPrincipal.getContentPane().add(pnlEliminarPersonas);
+					ventanaPrincipal.getContentPane().repaint();
+					ventanaPrincipal.getContentPane().revalidate();
+				} 
 		
 		//EventoClickMenu abrir PanelModificarPersonas
 		public void EventoClickMenu_AbrirPanel_ModificarPersona(ActionEvent a)
@@ -83,14 +83,7 @@ public class Controlador implements ActionListener
 		}
 		
 		
-		//EVENTOS CLICK ON PANELES
-		
-		private void EventoClickBoton_AgregarPesona_PanelAgregarPersonas(ActionEvent a) {
-			
-			//TERMINAR FUNCION
-		
-		}
-		
+	
 		
 		public void inicializar()
 		{
