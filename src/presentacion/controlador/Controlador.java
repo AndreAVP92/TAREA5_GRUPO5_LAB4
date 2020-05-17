@@ -28,7 +28,6 @@ public class Controlador implements ActionListener
 			this.ventanaPrincipal = vista;
 			this.pNeg = pNeg;
 			
-			
 			//Instancio los paneles
 			this.pnlIngresoPersonas = new PanelAgregarPersonas();
 			this.pnlEliminarPersonas = new PanelEliminarPersonas();
