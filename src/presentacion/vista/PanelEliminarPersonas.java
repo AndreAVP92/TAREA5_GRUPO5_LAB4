@@ -63,22 +63,5 @@ public class PanelEliminarPersonas extends JPanel {
 	}
 	
 	
-	public void llenarDatos(List<Persona> personasEnTabla) {
-		
-
-		if (personasEnTabla != null) {
-			
-			for (Persona p : personasEnTabla)
-			{
-				//listModel.addElement(personasEnTabla.);
-			}
-			
-			
-		}
-		else {
-			
-			mostrarMensaje("No tiene datos");
-		}	
-		
-	}
+	
 }

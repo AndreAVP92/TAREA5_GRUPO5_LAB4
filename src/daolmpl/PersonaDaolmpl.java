@@ -15,7 +15,7 @@ import entidad.Persona;
 public class PersonaDaolmpl implements PersonaDao
 {
 	private static final String insert = "INSERT INTO personas(dni, nombre, apellido) VALUES(?, ?, ?)";
-//	private static final String delete = "DELETE FROM personas WHERE idPersona = ?";
+	private static final String delete = "DELETE FROM personas WHERE dni = ?";
 	private static final String readall = "SELECT * FROM personas";
 	private static final String update = "UPDATE personas SET ?,?,? WHERE dni=?";
 		
@@ -64,27 +64,27 @@ public class PersonaDaolmpl implements PersonaDao
 
 	return datos;
 	}
-//	public boolean delete(Persona persona_a_eliminar)
-//	{
-//		PreparedStatement statement;
-//		Connection conexion = Conexion.getConexion().getSQLConexion();
-//		boolean isdeleteExitoso = false;
-//		try 
-//		{
-//			statement = conexion.prepareStatement(delete);
-//			statement.setString(1, Integer.toString(persona_a_eliminar.getIdPersona()));
-//			if(statement.executeUpdate() > 0)
-//			{
-//				conexion.commit();
-//				isdeleteExitoso = true;
-//			}
-//		} 
-//		catch (SQLException e) 
-//		{
-//			e.printStackTrace();
-//		}
-//		return isdeleteExitoso;
-//	}
+	public boolean delete(Persona persona_a_eliminar)
+		{
+		PreparedStatement statement;
+		Connection conexion = Conexion.getConexion().getSQLConexion();
+	boolean isdeleteExitoso = false;
+		try 
+	{
+		statement = conexion.prepareStatement(delete);
+			statement.setString(1,persona_a_eliminar.getDni());
+			if(statement.executeUpdate() > 0)
+		{
+				conexion.commit();
+				isdeleteExitoso = true;
+		}
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		return isdeleteExitoso;
+	}
 	
 	public List<Persona> readAll()
 	{
@@ -98,7 +98,9 @@ public class PersonaDaolmpl implements PersonaDao
 			resultSet = statement.executeQuery();
 			while(resultSet.next())
 			{
+				
 				personas.add(getPersona(resultSet));
+			
 			}
 		} 
 		catch (SQLException e) 
@@ -112,7 +114,7 @@ public class PersonaDaolmpl implements PersonaDao
 	{
 		String nombre = resultSet.getString("Nombre");
 	String apellido = resultSet.getString("Apellido");
-		String dni = resultSet.getString("Dni");
+		String dni = resultSet.getString("DNI");
 		return new Persona(nombre, apellido, dni);
 	}
 	

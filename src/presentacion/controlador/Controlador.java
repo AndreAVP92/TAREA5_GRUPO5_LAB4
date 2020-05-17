@@ -3,6 +3,10 @@ package presentacion.controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.DefaultListModel;
+
 import negocio.PersonaNegocio;
 import presentacion.vista.PanelAgregarPersonas;
 import presentacion.vista.PanelEliminarPersonas;
@@ -16,7 +20,14 @@ public class Controlador implements ActionListener
 
 	private VentanaPrincipal ventanaPrincipal;
 	private PersonaNegocio pNeg;
-	private ArrayList<Persona> personasEnTabla;
+	
+	
+	private List<Persona> personasEnTabla;
+	
+	
+	
+	private DefaultListModel<Persona> listModel = new DefaultListModel<Persona>();
+	
 	private PanelAgregarPersonas pnlIngresoPersonas;
 	private PanelEliminarPersonas pnlEliminarPersonas;
 	private PanelModificarPersonas pnlModificarPersonas;
@@ -60,6 +71,8 @@ public class Controlador implements ActionListener
 				public void EventoClickMenu_AbrirPanel_EliminarPersona(ActionEvent a)
 				{		
 					ventanaPrincipal.getContentPane().removeAll();
+					llenarDatos();
+					pnlEliminarPersonas.setDefaultListModel(listModel);
 					ventanaPrincipal.getContentPane().add(pnlEliminarPersonas);
 					ventanaPrincipal.getContentPane().repaint();
 					ventanaPrincipal.getContentPane().revalidate();
@@ -84,14 +97,30 @@ public class Controlador implements ActionListener
 		}
 		
 		
-		/*private void refrescarTabla()
+	private void refrescarTabla()
 		{
-			this.personasEnTabla = (ArrayList<Persona>) pNeg.readAll();
-			this.pnlEliminarPersonas.llenarDatos(this.personasEnTabla);
+			this.personasEnTabla = pNeg.readAll();
+			
 			
 		}
 
-*/
+
+public void llenarDatos() {
+		
+	refrescarTabla();
+
+		if (!personasEnTabla.isEmpty()) {
+			
+			for (Persona p : personasEnTabla)
+			{
+				listModel.addElement(p);
+				
+			}
+			
+		}
+		
+	}
+		
 		
 		public void inicializar()
 		{

@@ -36,6 +36,14 @@ public class Persona {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+
+	@Override
+	public String toString() {
+		return "Persona [dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + "]";
+	}
+	
+	
+	
 	
 	
 }
