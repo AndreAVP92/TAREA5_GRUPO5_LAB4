@@ -4,9 +4,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-
+import daolmpl.PersonaDaolmpl;
 import java.awt.Color;
-
+import java.sql.ResultSet;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -41,6 +41,10 @@ public class PanelListarPersonas extends JPanel {
 		panel.add(spPersonas);
 		
 		modelPersonas = new DefaultTableModel(null,nombreColumnas);
+		ResultSet rs = PersonaDaolmpl.getTabla("SELECT Nombre,Apellido,Dni FROM Personas");
+		
+		modelPersonas.setColumnIdentifiers(new Object[] {"Nombre","Apellido","Dni"});
+		
 		table = new JTable(modelPersonas);
 		
 		table.getColumnModel().getColumn(0).setPreferredWidth(103);
@@ -49,6 +53,20 @@ public class PanelListarPersonas extends JPanel {
 		table.getColumnModel().getColumn(1).setResizable(false);
 		
 		spPersonas.setViewportView(table);
+		
+		try {
+			
+			while(rs.next()) {
+				
+				modelPersonas.addRow(new Object[] {rs.getString("Nombre"),rs.getString("Apellido"),rs.getString("Dni")});
+				
+			}
+			
+			table.setModel(modelPersonas);
+			
+		}catch(Exception e) {
+			System.out.println(e);
+		}
 		
 	
 	}
