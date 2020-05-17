@@ -4,7 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.sql.SQLException;
 
 
@@ -15,7 +16,7 @@ public class PersonaDaolmpl implements PersonaDao
 {
 	private static final String insert = "INSERT INTO personas(dni, nombre, apellido) VALUES(?, ?, ?)";
 //	private static final String delete = "DELETE FROM personas WHERE idPersona = ?";
-//	private static final String readall = "SELECT * FROM personas";
+	private static final String readall = "SELECT * FROM personas";
 	private static final String update = "UPDATE personas SET ?,?,? WHERE dni=?";
 		
 	public boolean insert(Persona persona)
@@ -85,35 +86,35 @@ public class PersonaDaolmpl implements PersonaDao
 //		return isdeleteExitoso;
 //	}
 	
-//	public List<Persona> readAll()
-//	{
-//		PreparedStatement statement;
-//		ResultSet resultSet; //Guarda el resultado de la query
-//		ArrayList<Persona> personas = new ArrayList<Persona>();
-//		Conexion conexion = Conexion.getConexion();
-//		try 
-//		{
-//			statement = conexion.getSQLConexion().prepareStatement(readall);
-//			resultSet = statement.executeQuery();
-//			while(resultSet.next())
-//			{
-//				personas.add(getPersona(resultSet));
-//			}
-//		} 
-//		catch (SQLException e) 
-//		{
-//			e.printStackTrace();
-//		}
-//		return personas;
-//	}
+	public List<Persona> readAll()
+	{
+		PreparedStatement statement;
+		ResultSet resultSet; //Guarda el resultado de la query
+		ArrayList<Persona> personas = new ArrayList<Persona>();
+		Conexion conexion = Conexion.getConexion();
+		try 
+		{
+			statement = conexion.getSQLConexion().prepareStatement(readall);
+			resultSet = statement.executeQuery();
+			while(resultSet.next())
+			{
+				personas.add(getPersona(resultSet));
+			}
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+	return personas;
+	}
 	
-//	private Persona getPersona(ResultSet resultSet) throws SQLException
-//	{
-//		String nombre = resultSet.getString("Nombre");
-//		String apellido = resultSet.getString("Apellido");
-//		String dni = resultSet.getString("Dni");
-//		return new Persona(nombre, apellido, dni);
-//	}
+	private Persona getPersona(ResultSet resultSet) throws SQLException
+	{
+		String nombre = resultSet.getString("Nombre");
+	String apellido = resultSet.getString("Apellido");
+		String dni = resultSet.getString("Dni");
+		return new Persona(nombre, apellido, dni);
+	}
 	
 	public boolean update(Persona persona)
 	{
