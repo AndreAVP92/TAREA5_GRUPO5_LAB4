@@ -4,6 +4,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 
 public class PanelAgregarPersonas extends JPanel {
@@ -11,51 +13,11 @@ public class PanelAgregarPersonas extends JPanel {
 	private JTextField textField_Apellido;
 	private JTextField textField_DNI;
 	private JTextField textField_Nombre;
+	private JButton btnAceptar;
 	
-		
 	public PanelAgregarPersonas() {
-		
-			super();
-			initialize();
-		}
-
-	public JTextField getTextField_Apellido() {
-		return textField_Apellido;
-	}
-
-
-
-
-	public void setTextField_Apellido(JTextField textField_Apellido) {
-		this.textField_Apellido = textField_Apellido;
-	}
-
-
-
-
-	public JTextField getTextField_DNI() {
-		return textField_DNI;
-	}
-
-
-
-
-	public void setTextField_DNI(JTextField textField_DNI) {
-		this.textField_DNI = textField_DNI;
-	}
-
-
-
-
-	public JTextField getTextField_Nombre() {
-		return textField_Nombre;
-	}
-
-
-
-
-	public void setTextField_Nombre(JTextField textField_Nombre) {
-		this.textField_Nombre = textField_Nombre;
+		super();
+		initialize();
 	}
 
 	public void initialize() {
@@ -75,7 +37,7 @@ public class PanelAgregarPersonas extends JPanel {
 		add(textField_DNI);
 		textField_DNI.setColumns(10);
 		
-		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar = new JButton("Aceptar");
 		btnAceptar.setBounds(66, 334, 155, 25);
 		add(btnAceptar);
 		
@@ -99,14 +61,44 @@ public class PanelAgregarPersonas extends JPanel {
 		textField_Nombre.setColumns(10);
 		textField_Nombre.setBounds(207, 83, 157, 22);
 		add(textField_Nombre);
-
 	}
+	
+	public JButton getBtnAgregar() {
+		return btnAceptar;
+	}
+	
+	public JTextField getTxtApellido() {
+		return textField_Apellido;
+	}
+
+	public void setTextField_Apellido(JTextField textField_Apellido) {
+		this.textField_Apellido = textField_Apellido;
+	}
+
+	public JTextField getTxtDNI() {
+		return textField_DNI;
+	}
+
+	public void setTextField_DNI(JTextField textField_DNI) {
+		this.textField_DNI = textField_DNI;
+	}
+
+	public JTextField getTxtNombre() {
+		return textField_Nombre;
+	}
+
+	public void setTextField_Nombre(JTextField textField_Nombre) {
+		this.textField_Nombre = textField_Nombre;
+	}
+
 
 	public void show()
 	{
 		this.setVisible(true);
 	}
 
+	public void mostrarMensaje(String mensaje) {
+		JOptionPane.showMessageDialog(null, mensaje);
+	}
 
-	
 }

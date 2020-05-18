@@ -19,7 +19,7 @@ public class Controlador implements ActionListener {
 	private PersonaNegocio pNeg;
 	private List<Persona> personasEnTabla;
 	private DefaultListModel<Persona> listModel = new DefaultListModel<Persona>();
-	private PanelAgregarPersonas pnlIngresoPersonas;
+	private PanelAgregarPersonas pnlAgregarPersonas;
 	private PanelEliminarPersonas pnlEliminarPersonas;
 	private PanelModificarPersonas pnlModificarPersonas;
 	private PanelListarPersonas pnlListarPersonas;
@@ -30,7 +30,7 @@ public class Controlador implements ActionListener {
 		this.pNeg = pNeg;
 
 		// Instancio los paneles
-		this.pnlIngresoPersonas = new PanelAgregarPersonas();
+		this.pnlAgregarPersonas = new PanelAgregarPersonas();
 		this.pnlEliminarPersonas = new PanelEliminarPersonas();
 		this.pnlModificarPersonas = new PanelModificarPersonas();
 		this.pnlListarPersonas = new PanelListarPersonas();
@@ -42,6 +42,8 @@ public class Controlador implements ActionListener {
 		this.ventanaPrincipal.getMenuListar().addActionListener(a -> EventoClickMenu_AbrirPanel_ListarPersona(a));
 
 		// Eventos click on Paneles
+		this.pnlAgregarPersonas.getBtnAgregar()
+				.addActionListener(a -> EventoClickButton_AgregarPesona_PanelAgregarPersonas(a));
 		this.pnlModificarPersonas.getBtnModificar()
 				.addActionListener(a -> EventoClickButton_ModificarPesona_PanelModificarPersonas(a));
 		this.pnlModificarPersonas.getList()
@@ -56,7 +58,7 @@ public class Controlador implements ActionListener {
 	// EventoClickMenu abrir PanelAgregarPersonas
 	public void EventoClickMenu_AbrirPanel_AgregarPersona(ActionEvent a) {
 		ventanaPrincipal.getContentPane().removeAll();
-		ventanaPrincipal.getContentPane().add(pnlIngresoPersonas);
+		ventanaPrincipal.getContentPane().add(pnlAgregarPersonas);
 		ventanaPrincipal.getContentPane().repaint();
 		ventanaPrincipal.getContentPane().revalidate();
 	}
@@ -89,8 +91,30 @@ public class Controlador implements ActionListener {
 		ventanaPrincipal.getContentPane().revalidate();
 	}
 
-	
 	// EVENTOS CLICK BUTTON ON PANELS
+
+	// EventoClickButton agregar persona en PanelAgregarPersonas
+	private void EventoClickButton_AgregarPesona_PanelAgregarPersonas(ActionEvent a) {
+		if(verificarCamposCompletos()){
+			String nombre = this.pnlAgregarPersonas.getTxtNombre().getText();
+			String apellido = this.pnlAgregarPersonas.getTxtApellido().getText();
+			String dni = this.pnlAgregarPersonas.getTxtDNI().getText();
+			Persona nuevaPersona = new Persona(dni, nombre, apellido);
+
+			boolean estado = pNeg.insert(nuevaPersona);
+			String mensaje;
+			if (estado == true) {
+				mensaje = "Persona agregada con exito";
+				this.pnlAgregarPersonas.getTxtNombre().setText("");
+				this.pnlAgregarPersonas.getTxtApellido().setText("");
+				this.pnlAgregarPersonas.getTxtDNI().setText("");
+			} else
+				mensaje = "Ocurrió un error, la persona no ha sido agregada";
+
+			this.pnlAgregarPersonas.mostrarMensaje(mensaje);
+		} else
+			this.pnlAgregarPersonas.mostrarMensaje("Todos los campos deben estar completos");
+	}
 
 	// EventoClickButton modificar persona en PanelModificarPersonas
 	private void EventoClickButton_ModificarPesona_PanelModificarPersonas(ActionEvent a) {
@@ -108,14 +132,13 @@ public class Controlador implements ActionListener {
 				this.pnlModificarPersonas.getTxtApellido().setText("");
 				this.pnlModificarPersonas.getTxtDni().setText("");
 			} else
-				mensaje = "Ups! Ocurrió un error, la persona no ha sido modificada";
+				mensaje = "Ocurrió un error, la persona no ha sido modificada";
 
 			this.pnlModificarPersonas.mostrarMensaje(mensaje);
 			this.llenarDatos();
 			pnlModificarPersonas.setDefaultListModel(listModel);
-		}
-		else
-			this.pnlModificarPersonas.mostrarMensaje("Persona no modificada, todos los campos deben estar completos");
+		} else
+			this.pnlModificarPersonas.mostrarMensaje("Debe seleccionar una persona de la lista");
 	}
 
 	// EventoClickList seleccionar persona en PanelModificarPersonas
@@ -128,9 +151,10 @@ public class Controlador implements ActionListener {
 			this.pnlModificarPersonas.getTxtDni().setText(personaSeleccionada.getDni());
 		}
 	}
-	
+
 	// EventoClickButton eliminar persona en PanelEliminarPersonas
 	public void EventoClickBoton_BorrarPesona_PanelEliminarPersonas(ActionEvent s) {
+		if (this.pnlEliminarPersonas.getList().getSelectedIndex() >= 0) {
 		boolean estado = false;
 		int filasSeleccionadas = this.pnlEliminarPersonas.getList().getSelectedIndex();
 		estado = pNeg.delete(this.personasEnTabla.get(filasSeleccionadas));
@@ -140,9 +164,10 @@ public class Controlador implements ActionListener {
 		}
 		this.llenarDatos();
 		this.pnlEliminarPersonas.setDefaultListModel(listModel);
+		} else
+			this.pnlModificarPersonas.mostrarMensaje("Debe seleccionar una persona de la lista");
 	}
 
-	
 	private void refrescarTabla() {
 		this.personasEnTabla = pNeg.readAll();
 	}
@@ -161,6 +186,12 @@ public class Controlador implements ActionListener {
 	public void inicializar() {
 		this.ventanaPrincipal.setLocationRelativeTo(null);
 		this.ventanaPrincipal.setVisible(true);
+	}
+	
+	public boolean verificarCamposCompletos() {
+		if(!this.pnlAgregarPersonas.getTxtDNI().getText().equals("") && !this.pnlAgregarPersonas.getTxtApellido().getText().equals("") && !this.pnlAgregarPersonas.getTxtNombre().getText().equals(""))
+			return true;
+		return false;
 	}
 
 	@Override
