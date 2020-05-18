@@ -3,9 +3,7 @@ package presentacion.vista;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
 import entidad.Persona;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JList;
@@ -61,7 +59,6 @@ public class PanelModificarPersonas extends JPanel {
 		JLabel lblModificar = new JLabel("Seleccione la persona a modificar:");
 		lblModificar.setBounds(39, 16, 327, 20);
 		add(lblModificar);
-
 	}
 
 	public void mostrarMensaje(String mensaje) {
@@ -82,6 +79,14 @@ public class PanelModificarPersonas extends JPanel {
 	
 	public JButton getBtnModificar() {
 		return btnModificar;
+	}
+	
+	public JList<Persona> getList() {
+		return list;
+	}
+
+	public void setList(JList<Persona> list) {
+		this.list = list;
 	}
 	
 	public void setDefaultListModel(DefaultListModel<Persona> listModelRecibido) {

@@ -17,18 +17,8 @@ public class PanelEliminarPersonas extends JPanel {
 
 	private JButton btnEliminar;
 	private JList<Persona> list;
-	
 	private DefaultListModel<Persona> listModel;
 	
-	
-	public JList<Persona> getList() {
-		return list;
-	}
-
-	public void setList(JList<Persona> list) {
-		this.list = list;
-	}
-
 	public PanelEliminarPersonas() {
 		setLayout(null);
 		this.setBounds(100, 100, 514, 455);
@@ -42,13 +32,18 @@ public class PanelEliminarPersonas extends JPanel {
 		list.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		list.setBounds(65, 89, 389, 240);
 		add(list);
-	
-		
 		
 		btnEliminar = new JButton("Eliminar");
 		btnEliminar.setBounds(192, 363, 97, 25);
 		add(btnEliminar);
+	}
+	
+	public JList<Persona> getList() {
+		return list;
+	}
 
+	public void setList(JList<Persona> list) {
+		this.list = list;
 	}
 
 	public void setDefaultListModel(DefaultListModel<Persona> listModelRecibido) {
@@ -56,21 +51,16 @@ public class PanelEliminarPersonas extends JPanel {
 		list.setModel(this.listModel);
 	}
 
-
 	public JButton getBtnEliminar() {
 		return btnEliminar;
 	}
-
 
 	public void setBtnEliminar(JButton btnEliminar) {
 		this.btnEliminar = btnEliminar;
 	}
 	
-	public void mostrarMensaje(String mensaje)
-	{
+	public void mostrarMensaje(String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje);
 	}
-	
-	
 	
 }

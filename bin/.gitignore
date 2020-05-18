@@ -1,6 +1,4 @@
-/dao/
-/daolmpl/
-/negocio/
-/negociolmpl/
 /presentacion/
-/entidad/
+/daolmpl/
+/dao/
+/negociolmpl/

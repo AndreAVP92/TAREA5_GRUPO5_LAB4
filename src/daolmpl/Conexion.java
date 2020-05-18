@@ -13,7 +13,7 @@ public class Conexion
 	{
 		try
 		{
-			Class.forName("com.mysql.cj.jdbc.Driver"); // quitar si no es necesario
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdpersonas?serverTimezone=UTC","root","root");
 			this.connection.setAutoCommit(false);
 		}
