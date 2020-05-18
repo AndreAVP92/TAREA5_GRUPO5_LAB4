@@ -27,39 +27,39 @@ public class PanelAgregarPersonas extends JPanel {
 		
 		textField_Apellido = new JTextField();
 		textField_Apellido.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		textField_Apellido.setBounds(207, 159, 157, 22);
+		textField_Apellido.setBounds(240, 158, 157, 22);
 		add(textField_Apellido);
 		textField_Apellido.setColumns(10);
 		
 		textField_DNI = new JTextField();
 		textField_DNI.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		textField_DNI.setBounds(207, 242, 157, 22);
+		textField_DNI.setBounds(240, 241, 157, 22);
 		add(textField_DNI);
 		textField_DNI.setColumns(10);
 		
 		btnAceptar = new JButton("Aceptar");
-		btnAceptar.setBounds(66, 334, 155, 25);
+		btnAceptar.setBounds(240, 327, 155, 25);
 		add(btnAceptar);
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNombre.setBounds(110, 85, 70, 19);
+		lblNombre.setBounds(143, 84, 70, 19);
 		add(lblNombre);
 		
 		JLabel lblApellido = new JLabel("Apellido");
 		lblApellido.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblApellido.setBounds(110, 162, 70, 16);
+		lblApellido.setBounds(143, 161, 70, 16);
 		add(lblApellido);
 		
 		JLabel lblDNI = new JLabel("DNI");
 		lblDNI.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblDNI.setBounds(124, 245, 56, 16);
+		lblDNI.setBounds(157, 244, 56, 16);
 		add(lblDNI);
 		
 		textField_Nombre = new JTextField();
 		textField_Nombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textField_Nombre.setColumns(10);
-		textField_Nombre.setBounds(207, 83, 157, 22);
+		textField_Nombre.setBounds(240, 82, 157, 22);
 		add(textField_Nombre);
 	}
 	
